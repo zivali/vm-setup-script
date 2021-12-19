@@ -45,7 +45,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $nic
+    $nic:
       addresses:
         - $STATICIP
       gateway4: $GATEWAY
