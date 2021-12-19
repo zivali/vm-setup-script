@@ -5,7 +5,7 @@
 # Changes dhcp from 'yes' to 'no'
 sed -i "s/dhcp4: yes/dhcp4: no/g" /etc/netplan/00-installer-config.yaml
 # Retrieves the NIC information
-nic=`cat /proc/net/dev | awk '{i++; if(i>2){print $1}}' | sed 's/^[\t]*//g' | tail -1`
+nic=`ls /sys/class/net | grep en | tail -1`
 
 # IP pattern
 IP_SLASH_PATTERN="([0-9]{1,3}[\.]){3}[0-9]{1,3}\/[0-9]{1,2}"
